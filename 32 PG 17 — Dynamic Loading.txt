@@ -1,0 +1,413 @@
+32	PG 17 — Dynamic Loading
+32.1	PG 17 — General
+Purpose:
+Influence of Sine, Noise and Shock Profiles on Connectors.
+Prerequisite:
+The resonance behavior of the clamping device must be checked before the test. Deviations of > + 6 dB in the frequency range to be tested are permissible if an influence on the result is not to be expected. The verification can be carried out by suitable calculation tools (FEM) and/or by resonance investigations on a vibration system. In both examination methods, the test sample mass must also be taken into account. Parameters: 5 Hz – 2 000 Hz – 5 Hz, 10 m/s2, 1 octave/min, 1 pass.
+Contact Validation
+Lot size:
+Contact parts:
+At least 10 contact parts per variant, maximum nominal conductor cross-section, unless otherwise specified.
+Test samples from different cavities (e.g. double stroke) are not explicitly considered.
+Housing:
+Sealed or unsealed, depending on the area of application.
+Enclosure validation
+Batch size
+At least 3 enclosures
+Fully equipped, at least 10 electrically monitored channels (can contain several contacts in series), divided into edge areas and center, as well as locking near and far
+Test samples from different cavities (mold nests) are not considered.
+Nominal conductor cross-sections: 
+To be determined on a case-by-case basis, preferably all nominal conductor cross-sections are divided among the samples.
+Line insulation:
+The insulation material must withstand at least the limit temperature TGrenz of the test object (corresponds to the continuous service temperature according to the data sheet).
+Additional information on E 0.2:
+	E 0.2 (contact validation):
+The contact resistance is initially measured before the first axis and after each room axis in the standard climate (test samples must be tempered through) in the clamped and hardwired state. The test samples are then converted to the next axis.
+	E 0.2 (Housing Validation):
+The contact resistance is initially measured before the first axis and after each room axis in the standard climate (test samples must be tempered through) in the clamped and hardwired state. The test samples are then converted to the next axis.
+Series connection of the contacts is permitted during housing validation. However, the total resistance may only increase as far as it is Table 6 for a contact. If this criterion is not met, the individual resistances of the contacts must be measured.
+The tests to be carried out are Table 43 .
+Tabelle 43 — Examinations PG 17
+No.	Exam
+E 0.1	Visual inspection DIN EN 6051211
+E 0.2	Contact resistance bushing see section6
+
+E 15.0	Measurement of contact resistance during load
+E 17.1	During the test, both the load profiles V1 to V6 and the shock load are monitored for current interruptions. A current interruption is present when the resistance exceeds the value of 7 Ω longer than 1 μs (see Picture 27).
+
+B 17.1	The vibration classes (V1 to V6) are described in the section 12.3 described and determined.
+
+
+ 
+Legend
+1	Pin contact
+2	Vibration system
+X, Y, Z	Test Levels
+Bild 26 — Definition of test levels
+ 
+Legend
+R	Resistance
+t	Time
+A	= acceptable
+B	= not acceptable
+Bild 27 — Definition of short-term interruption
+NOTE	Other applications (e.g. data transfers) may have different limits.
+The number of measurement channels – short-term interruption / trend recording – must be divided in a reasonable ratio.
+32.2	PG 17 — Dynamic Loading — Test Procedure
+The 3 test levels are to be completed sequentially. The order of the test levels can be freely selected.
+The tests to be carried out are Table 44 .
+Tabelle 44 — Examinations PG 17 — Examination procedure "Structure 1st test level"
+No.	Exam
+E 0.1	Visual inspection DIN EN 6051211
+E 0.2	Contact resistance: see section6
+
+	Single resistance of the contacts;
+Series resistance (if contacts are connected in series).
+E 15.0	Measurement of contact resistance during load
+E 17.1	Measurement of short-term interruption during exercise
+B 17.1	Vibration test according to vibration class (V1bisV6) – test level 1
+	Sine/Noise (if required)
+Mechanical shock (if required)
+E 0.2	Contact resistance: see section6
+
+	Single resistance of the contacts (if series resistance criterion is not met);
+Series resistance (if contacts are connected in series).
+
+The tests to be carried out are Table 43Table 45 .
+Tabelle 45 — Examinations PG 17 — Examination procedure "Conversion to 2nd test level"
+No.	Exam
+E 15.0	Measurement of contact resistance during load
+E 17.1	Measurement of short-term interruption during exercise
+B 17.1	Vibration test depending on vibration class (V1 to V6) – test level 2
+	Sine/Noise (if required)
+Mechanical shock (if required)
+E 0.2	Contact resistance: see section6
+
+	Single resistance of the contacts (if series resistance criterion is not met);
+Series resistance (if contacts are connected in series).
+
+The tests to be carried out are Table 46 .
+Tabelle 46 — Examinations PG 17 — Examination procedure "Conversion to 3rd test level"
+No.	Exam
+E 15.0	Measurement of contact resistance during load
+E 17.1	Measurement of short-term interruption during exercise
+B 17.1	Vibration test depending on vibration class (V1 to V6) – test level 3
+	Sine/Noise (if required)
+Mechanical shock (if required)
+E 0.2	Contact resistance: see section6
+
+	Single resistance of the contacts;
+Series resistance (if contacts are connected in series).
+E 0.1	Visual inspection DIN EN 6051211
+
+32.3	PG 17 — Clamping on the oscillating table
+The control sensors must be placed in such a way that the test samples are not exposed to unacceptably high or too low loads.
+The test setup must be adjusted in such a way that there is no vibration exaggeration by the unit connection, unless this is the subject of the test.
+If necessary, the accelerometers for the control signal can be attached to the genset connection. However, it must be ensured that the sensor does not influence the result.
+The fixation points must be designed in such a way that the continued line has no influence on the test pattern.
+Unless otherwise specified, the cable fixations oscillate in phase.
+Enclosure validation:
+In the case of "flying" connector systems, the original fasteners (e.g. baying elements) must be reproduced or used.
+The original attachment points, e.g. screw-on eyes, are to be used.
+Contact validation:
+In the case of contact validation, the housings must be fixed on the vibration holder in such a way that there is no influence on the contact system, see Fig. 28 and Fig. 29.
+Dimensions in millimeters
+ 
+Legend
+Links:	Connection 90°
+Right:	Connection 180°
+1	Fasteners on the vibratory system
+2	Contact housing
+3	Lines
+4	Vibration system
+Bild 28 — Example 1 for mounting on the vibratory system
+Dimensions in millimeters
+ 
+Legend
+1	Fasteners on the vibratory system
+2	Receptacle and pin housings
+3	Lines
+Bild 29 — Example 2 for mounting on the vibratory system
+32.4	PG 17 — Vibration classes
+32.4.1	PG 17 — Vibration Class V1
+Profile Noise with superimposed temperature cycling, see Table 47, Table 48, Table 49 and Image 30.
+The test parameters are Table 47 .
+Tabelle 47 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+150	⎼40
+300	Tmaxa
+420	Tmaxa
+480	20
+a	However, not more than 150 °C.  Number of cycles: 1 per level.
+
+The test parameters are Table 48 .
+Tabelle 48 — Noise DIN EN 60068264
+Frequency	Spectral Power Density
+Hz	(m/s2)2/Hz
+10	20
+55	6,5
+180	0,25
+300	0,25
+360	0,14
+1 000	0,14
+Acceleration RMS: 27.8 m/s2
+Test duration: 8 h per level
+Clipping: 2.5
+Crest Factor: 3
+
+ 
+Legend
+X	Frequency
+Y	Spectral power density in (m/s2)2/Hz
+Bild 30 — Vibration Profile V1 Noise
+The test parameters are Table 49 .
+Tabelle 49 — Mechanical shock DIN EN 60068227
+Acceleration	Pulse duration
+m/s2	ms
+300	6
+Shock form: Half-sine
+Quantity: 6 000
+Directions: 6 (1,000 shocks per direction)
+
+32.4.2	PG 17 — Vibration Class V2
+Profile Noise with superimposed temperature cycling, see Table 50, Table 51, Table 52 and Image 31.
+The test parameters are Table 50 .
+Tabelle 50 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+110	⎼40
+260	Tmaxa
+340	Tmaxa
+400	20
+Number of cycles: 3 per level (total test duration per level 20 h)
+a	However, not more than 150 °C.
+
+The test parameters are Table 51 .
+Tabelle 51 — Noise DIN EN 60068264
+Frequency	Spectral Power Density
+Hz	(m/s2)2/Hz
+10	20
+55	6,5
+180	0,25
+300	0,25
+360	0,14
+1 000	0,14
+Acceleration RMS: 27.8 m/s2
+Test duration: 20 h per level
+Clipping: 2.5
+Crest Factor: 3
+
+ 
+Legend
+X	Frequency in Hz
+Y	Spectral power density in (m/s2)2/Hz
+Bild 31 — Vibration Profile V2 Noise
+The test parameters are Table 52 .
+Tabelle 52 — Mechanical shock DIN EN 60068227
+Acceleration	Pulse duration
+m/s2	ms
+300	6
+Shock form: Half-sine
+Quantity: 6 000
+Directions: 6 (1,000 shocks per direction)
+
+32.4.3	PG 17 — Vibration Class V3
+Profile Sine/Noise with Superimposed Temperature Change, see Table 53, Table 54, Table 55, Fig. 32 and Image 33.
+Sine and noise may be superimposed (SoR).
+The test parameters are Table 53 .
+Tabelle 53 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+90	⎼40
+240	Tmaxa
+380	Tmaxa
+440	20
+Number of cycles: 3 per level (total test duration per level 22 h)
+a	However, not more than 150 °C.
+
+The test parameters are Table 54 .
+Tabelle 54 — Noise DIN EN 60068264
+Frequency	Spectral Power Density
+Hz	(m/s2)2/Hz
+10	10
+100	10
+300	0,51
+500	5
+2 000	5
+Acceleration RMS: 96.6 m/s2
+Test duration: 22 h per level
+Clipping: 2.5
+Crest Factor: 3
+
+ 
+Legend
+X	Frequency in Hz
+Y	Spectral power density in (m/s2)2/Hz
+Bild 32 — Vibration Profile V3 Noise
+The test parameters are Table 55 .
+Tabelle 55 — Sine Wave DIN EN 6006826
+Frequency	Acceleration
+Hz	m/s2
+100	100
+150	150
+440	150
+Test duration: 22 h
+Frequency change 1 octave/minute
+
+ 
+Legend
+X	Frequency in Hz
+Y	Acceleration in m/s2
+Bild 33 — Vibration profile V3 Sine
+32.4.4	PG 17 — Vibration Class V4
+Profile Sine/Noise with Superimposed Temperature Change, see Table 56, Table 57, Table 58, Fig. 34 and Image 35.
+Sine and noise may be superimposed (SoR).
+The test parameters are Table 56 .
+Tabelle 56 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+90	⎼40
+240	Tmaxa
+380	Tmaxa
+440	20
+Number of cycles: 3 per level (total test duration per level 22 h)
+a	However, not more than 150 °C.
+
+The test parameters are Table 57 .
+Tabelle 57 — Noise DIN EN 60068264
+Frequency	Spectral Power Density
+Hz	(m/s2)2/Hz
+10	10
+100	10
+300	0,51
+500	20
+2 000	20
+Acceleration RMS: 181 m/s2
+Test duration: 22 h per level
+Clipping: 2.5
+Crest Factor: 3
+
+ 
+Legend
+X	Frequency in Hz
+Y	Spectral power density in (m/s2)2/Hz
+Bild 34 — Vibration Profile V4 Noise
+The test parameters are Table 58 .
+Tabelle 58 — Sine Wave DIN EN 6006826
+Frequency	Acceleration
+Hz	m/s2
+100	100
+150	150
+200	200
+240	200
+255	150
+440	150
+Test duration: 22 h per level
+Frequency change 1 octave/minute
+
+ 
+Legend
+X	Frequency in Hz
+Y	Acceleration in m/s2
+Bild 35 — Vibration profile V4 Sinus
+32.4.5	PG 17 — Vibration Class V5
+Sine profile with superimposed temperature cycling, see Table 59, Table 60 and Picture 36.
+The test parameters are Table 59 .
+Tabelle 59 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+150	⎼40
+300	Tmaxa
+440	Tmaxa
+500	20
+Number of cycles: 12 per level (total test duration per level 100 h)
+a	However, not more than 150 °C.
+
+The test parameters are Table 60 .
+Tabelle 60 — Sine Wave DIN EN 6006826
+Frequency	Acceleration
+Hz	(m/s2)
+100	150
+200	300
+400	300
+900	500
+2 000	500
+Test duration: 100 h per level
+Frequency change 1 octave/minute
+
+ 
+Legend
+X	Frequency in Hz
+Y	Acceleration in m/s2
+Bild 36 — Vibration profile V5 sine wave
+32.4.6	PG 17 — Vibration Class V6
+Sine profile with superimposed temperature cycling, see Table 61, Table 62 and Fig. 37.
+The test parameters are Table 61 .
+Tabelle 61 — Temperature profile DIN EN 60068214/ 1 cycle
+Time	Temperature
+min	°C
+0	20
+60	⎼40
+150	⎼40
+300	Tmaxa
+440	Tmaxa
+500	20
+Number of cycles: 12 per level (total test duration per level 100 h)
+a	However, not more than 150 °C.
+
+The test parameters are Table 62 .
+Tabelle 62 — Sine Wave DIN EN 6006826
+Frequency	Acceleration
+Hz	m/s2
+100	150
+200	500
+400	500
+900	800
+2 000	800
+Test duration: 100 h per level
+Frequency change 1 octave/minute
+
+ 
+Legend
+X	Frequency in Hz
+Y	Acceleration in m/s2
+Bild 37 — Vibration profile V6 Sinus
+32.5	PG 17 — Resonant frequency of contacting
+The tests to be carried out are Table 63 .
+Tabelle 63 — Tests PG 17 — Resonant frequency
+No.	Exam
+B 17.0	Resonance frequency of contacting
+	The purpose of this test is to determine where the resonance frequencies of the test samples are in the three test levels X, Y and Z. The test takes place at Normklima.
+In this case, the resonance frequency of the housing parts, including contacts and cables, under sinusoidal vibration must be provided.
+Vibration transducers of the smallest dimensions must be applied to the housings that are not firmly screwed to the oscillating table. Alternatively, non-contact measurement, e.g. by means of a laser vibrometer, is permitted.
+Proof must be provided on a test sample.
+
+The test parameters are Table 64 .
+Tabelle 64 — Sine Wave DIN EN 6006826
+Frequency	Acceleration
+Hz	m/s2
+5	10
+2 000	10
+5	10
+Frequency change 1 octave/minute
+Test duration 1 run
+
+32.6	PG 17 — Requirements
+The maximum values of the resistors from Table 6 are not exceeded in the pre-, intermediate and post-measurement with standard climate.
+No functionally relevant damage must occur (housing including locking and contact parts);
+Evaluation of the contact surfaces as defined in this document (see section13);
+No power interruptions shall occur during the test at load profiles V1 to V6 and during shock loading. A current interruption is present when the resistance exceeds the value of 7 Ω longer than 1 μs.
+Documentation
+Resonance frequency of contacting:
+	The vibration responses of the housing must also be recorded and documented as a diagram together with the excitation profile in the test report.

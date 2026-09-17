@@ -1,0 +1,139 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="DIN/TS 70214 PG 17 与 USCAR-2 随机振动 PSD profile 交互式对比工具">
+  <title>Vibration Profile Comparator</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <p class="eyebrow">RANDOM VIBRATION · ENGINEERING VIEW</p>
+      <h1>Vibration Profile Comparator</h1>
+      <p class="subtitle">Random vibration · PSD</p>
+    </div>
+    <div class="header-actions" aria-label="导出操作">
+      <button class="button button-secondary" id="exportCsv" type="button">导出 CSV</button>
+      <button class="button button-primary" id="exportSvg" type="button">导出 SVG</button>
+    </div>
+  </header>
+
+  <main class="workspace">
+    <aside class="control-panel" aria-label="Profile 选择">
+      <div class="panel-heading">
+        <div>
+          <p class="section-kicker">PROFILE SET</p>
+          <h2>测试等级</h2>
+        </div>
+        <button class="text-button" id="resetSelection" type="button">恢复默认</button>
+      </div>
+
+      <div id="dataErrors" class="data-errors" role="alert" hidden></div>
+      <div id="standardGroups"></div>
+
+      <div class="selection-footer">
+        <span><strong id="selectedCount">0</strong> / 5 曲线 · <strong id="selectedStandards">0</strong> / 3 标准<br>可用曲线：<span id="totalProfiles">0</span></span>
+        <button class="text-button" id="clearSelection" type="button">清除</button>
+      </div>
+      <p id="selectionMessage" class="selection-message" role="status" aria-live="polite"></p>
+    </aside>
+
+    <section class="analysis-panel">
+      <div class="chart-header">
+        <div>
+          <p class="section-kicker">SPECTRAL DENSITY</p>
+          <h2>Vibration Noise Intensity Profile</h2>
+        </div>
+        <div class="scale-badge" aria-label="坐标轴类型">
+          <span class="axis-mark">log</span>
+          <span>×</span>
+          <span class="axis-mark">log</span>
+        </div>
+      </div>
+
+      <div class="metric-strip" aria-label="图表摘要">
+        <div class="metric">
+          <span>已选曲线</span>
+          <strong id="metricProfiles">0</strong>
+        </div>
+        <div class="metric">
+          <span>频率范围</span>
+          <strong id="metricRange">—</strong>
+        </div>
+        <div class="metric">
+          <span>PSD 范围</span>
+          <strong id="metricPsd">—</strong>
+        </div>
+      </div>
+
+      <div class="chart-shell" id="chartShell">
+        <svg id="profileChart" role="img" aria-labelledby="chartTitle chartDesc">
+          <title id="chartTitle">随机振动功率谱密度对比图</title>
+          <desc id="chartDesc">频率与加速度功率谱密度均使用对数刻度。</desc>
+        </svg>
+        <div class="chart-tooltip" id="chartTooltip" hidden></div>
+        <div class="empty-state" id="emptyState" hidden>
+          <strong>未选择 Profile</strong>
+          <span>从左侧测试等级中选择曲线</span>
+        </div>
+      </div>
+
+      <div class="chart-legend" id="chartLegend" aria-label="曲线图例"></div>
+    </section>
+
+    <section class="data-section" aria-labelledby="dataHeading">
+      <div class="data-heading">
+        <div>
+          <p class="section-kicker">SELECTED PROFILE DATA</p>
+          <h2 id="dataHeading">Profile 参数</h2>
+        </div>
+        <p>RMS 为标准表格标称值；峰值为断点中的最大 PSD。</p>
+      </div>
+      <div class="table-wrap">
+        <table>
+          <thead>
+            <tr>
+              <th>标准</th>
+              <th>等级</th>
+              <th>频率范围</th>
+              <th>峰值 PSD</th>
+              <th>Acceleration RMS</th>
+              <th>每轴测试时长</th>
+              <th>断点数</th>
+            </tr>
+          </thead>
+          <tbody id="profileTableBody"></tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="source-section" aria-labelledby="sourceHeading">
+      <div class="source-copy">
+        <p class="section-kicker">SOURCE MATERIAL</p>
+        <h2 id="sourceHeading">数据来源</h2>
+        <p>曲线采用标准表格中的频率与 PSD 断点。相邻断点在双对数坐标中以直线连接。</p>
+        <div class="source-links">
+          <a href="Table_18_Vibration_Schedules_editable.xlsx">GMW3191 April 2025 · Table 18 数据表</a>
+          <a href="32%20PG%2017%20%E2%80%94%20Dynamic%20Loading.txt">DIN/TS 70214 · PG 17 原文</a>
+          <a href="USCAR-2%205.4.6.3C.png">USCAR-2 · Table 5.4.6.3C 原图</a>
+        </div>
+      </div>
+      <a class="source-preview" href="USCAR-2%205.4.6.3C.png" aria-label="打开 USCAR-2 Table 5.4.6.3C 原图">
+        <img src="USCAR-2%205.4.6.3C.png" alt="USCAR-2 Table 5.4.6.3C vibration intensity schedule">
+        <span>USCAR-2 · Table 5.4.6.3C</span>
+      </a>
+    </section>
+  </main>
+
+  <footer>
+    <span>PSD unit: (m/s²)²/Hz</span>
+    <span>Frequency unit: Hz</span>
+  </footer>
+
+  <script src="profiles.js"></script>
+  <script src="profile-data.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>
