@@ -2,9 +2,9 @@
 
 const { profiles, errors: dataErrors } = validateProfiles(typeof PROFILE_DATA === "undefined" ? null : PROFILE_DATA);
 const MAX_STANDARDS = 3;
-const MAX_PROFILES = 5;
+const MAX_PROFILES = 6;
 
-const DEFAULT_SELECTION = new Set(["din-v1", "din-v4", "uscar-v1", "uscar-v5"]);
+const DEFAULT_SELECTION = new Set(["din-v1", "uscar-v1", "gmw3191-v1a"]);
 let X_DOMAIN = [5, 2000];
 let Y_DOMAIN = [0.001, 300];
 const X_TICKS = [5, 10, 20, 50, 100, 200, 500, 1000, 2000];
