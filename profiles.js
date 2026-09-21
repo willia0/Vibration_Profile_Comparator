@@ -47,7 +47,7 @@ const PROFILE_DATA = [
     id: "uscar-v1",
     standard: "USCAR-2",
     level: "V1",
-    color: "#d24b35",
+    color: "#70842c",
     rms: 17.74,
     duration: 8,
     source: "Table 5.4.6.3C",
@@ -57,7 +57,8 @@ const PROFILE_DATA = [
     id: "uscar-v2",
     standard: "USCAR-2",
     level: "V2",
-    color: "#ef7b45",
+    color: "#be8a00",
+
     rms: 119,
     duration: 8,
     source: "Table 5.4.6.3C",
@@ -67,7 +68,7 @@ const PROFILE_DATA = [
     id: "uscar-v3",
     standard: "USCAR-2",
     level: "V3",
-    color: "#be8a00",
+    color: "#8c4c72",
     rms: 181,
     duration: 22,
     source: "Table 5.4.6.3C",
@@ -77,7 +78,7 @@ const PROFILE_DATA = [
     id: "uscar-v4",
     standard: "USCAR-2",
     level: "V4",
-    color: "#70842c",
+    color: "#ef7b45",
     rms: 181,
     duration: 50,
     source: "Table 5.4.6.3C",
@@ -87,7 +88,8 @@ const PROFILE_DATA = [
     id: "uscar-v5",
     standard: "USCAR-2",
     level: "V5",
-    color: "#8c4c72",
+
+    color: "#d24b35",
     rms: 107.3,
     duration: 22,
     source: "Table 5.4.6.3C",
@@ -155,5 +157,46 @@ const PROFILE_DATA = [
     duration: 31,
     source: "GMW3191 April 2025, Table 18 (Random; GRMS = 7.48)",
     points: [[12, 3.9815], [50, 2.0196], [130, 3.4237], [280, 9.3478], [450, 2.1542], [530, 4.6354], [780, 1.5291], [850, 4.0969], [1680, 1.2887], [2000, 0.7347]]
-  }
+  },
+  // VW 75174 Oct 2018 Table 9. Random components only.
+  {
+    id: "vw75174-s1",
+    standard: "VW 75174 Oct 2018",
+    level: "S1",
+    color: "#28e7ae",
+    rms: 19.7,
+    duration: 8,
+    source: "VW 75174 Oct 2018, Table 9 (Random; RMS = 19.7)",
+    points: [[10,10],[55,3.25],[180,0.125],[300,0.125],[360,0.07],[1000,0.07]]
+  },
+  {
+    id: "vw75174-s2",
+    standard: "VW 75174 Oct 2018",
+    level: "S2",
+    color: "#397db5",
+    rms: 27.8,
+    duration: 20,
+    source: "VW 75174 Oct 2018, Table 9 (Random; RMS = 27.8)",
+    points: [[10,20],[55,6.5],[180,0.25],[300,0.25],[360,0.14],[1000,0.14]]
+  },
+  {
+    id: "vw75174-s3",
+    standard: "VW 75174 Oct 2018",
+    level: "S3",
+    color: "#e08c1e",
+    rms: 105.5,
+    duration: 22,
+    source: "VW 75174 Oct 2018, Table 9 (Random; RMS = 105.5)",
+    points: [[20,10],[95,10],[110,0.01],[380,0.01],[410,20],[800,10],[1500,5]]
+  },
+  {
+    id: "vw75174-s4",
+    standard: "VW 75174 Oct 2018",
+    level: "S4",
+    color: "#be1f0a",
+    rms: 181,
+    duration: 22,
+    source: "VW 75174 Oct 2018, Table 9 (Random; RMS = 181)",
+    points: [[10,10],[100,10],[300,0.51],[500,20],[2000,20]]
+  },
 ];
