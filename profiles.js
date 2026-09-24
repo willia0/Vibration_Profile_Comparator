@@ -5,7 +5,7 @@
 const PROFILE_DATA = [
   {
     id: "din-v1",
-    standard: "DIN/TS 70214",
+    standard: "DIN/TS 70214 August 2025",
     level: "V1",
     color: "#087f75",
     rms: 27.8,
@@ -15,7 +15,7 @@ const PROFILE_DATA = [
   },
   {
     id: "din-v2",
-    standard: "DIN/TS 70214",
+    standard: "DIN/TS 70214 August 2025",
     level: "V2",
     color: "#23a69a",
     rms: 27.8,
@@ -25,7 +25,7 @@ const PROFILE_DATA = [
   },
   {
     id: "din-v3",
-    standard: "DIN/TS 70214",
+    standard: "DIN/TS 70214 August 2025",
     level: "V3",
     color: "#1769aa",
     rms: 96.6,
@@ -35,7 +35,7 @@ const PROFILE_DATA = [
   },
   {
     id: "din-v4",
-    standard: "DIN/TS 70214",
+    standard: "DIN/TS 70214 August 2025",
     level: "V4",
     color: "#654ea3",
     rms: 181,
@@ -45,7 +45,7 @@ const PROFILE_DATA = [
   },
   {
     id: "uscar-v1",
-    standard: "USCAR-2",
+    standard: "USCAR-2 Rev 9",
     level: "V1",
     color: "#70842c",
     rms: 17.74,
@@ -55,7 +55,7 @@ const PROFILE_DATA = [
   },
   {
     id: "uscar-v2",
-    standard: "USCAR-2",
+    standard: "USCAR-2 Rev 9",
     level: "V2",
     color: "#be8a00",
 
@@ -66,7 +66,7 @@ const PROFILE_DATA = [
   },
   {
     id: "uscar-v3",
-    standard: "USCAR-2",
+    standard: "USCAR-2 Rev 9",
     level: "V3",
     color: "#8c4c72",
     rms: 181,
@@ -76,7 +76,7 @@ const PROFILE_DATA = [
   },
   {
     id: "uscar-v4",
-    standard: "USCAR-2",
+    standard: "USCAR-2 Rev 9",
     level: "V4",
     color: "#ef7b45",
     rms: 181,
@@ -86,7 +86,7 @@ const PROFILE_DATA = [
   },
   {
     id: "uscar-v5",
-    standard: "USCAR-2",
+    standard: "USCAR-2 Rev 9",
     level: "V5",
 
     color: "#d24b35",
