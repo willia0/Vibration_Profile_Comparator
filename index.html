@@ -12,7 +12,7 @@
     <div>
       <p class="eyebrow">RANDOM VIBRATION · ENGINEERING VIEW</p>
       <h1>Vibration Profile Comparator</h1>
-      <p class="subtitle">Random vibration · PSD</p>
+      <p class="subtitle">Random PSD and sine vibration profile comparison</p>
     </div>
     <div class="header-actions" aria-label="导出操作">
       <button class="button button-secondary" id="exportCsv" type="button">导出 CSV</button>
@@ -21,6 +21,10 @@
   </header>
 
   <main class="workspace">
+    <nav class="mode-tabs" role="tablist" aria-label="Vibration test type">
+      <button class="mode-tab is-active" type="button" role="tab" aria-selected="true" data-mode-tab="random">随机振动 · Random</button>
+      <button class="mode-tab" type="button" role="tab" aria-selected="false" data-mode-tab="sine">正弦振动 · Sine</button>
+    </nav>
     <aside class="control-panel" aria-label="Profile 选择">
       <div class="panel-heading">
         <div>
@@ -43,8 +47,8 @@
     <section class="analysis-panel">
       <div class="chart-header">
         <div>
-          <p class="section-kicker">SPECTRAL DENSITY</p>
-          <h2>Vibration Noise Intensity Profile</h2>
+          <p class="section-kicker" id="chartModeKicker">SPECTRAL DENSITY</p>
+          <h2 id="chartModeHeading">Vibration Noise Intensity Profile</h2>
         </div>
         <div class="scale-badge" aria-label="坐标轴类型">
           <span class="axis-mark">log</span>
@@ -63,7 +67,7 @@
           <strong id="metricRange">—</strong>
         </div>
         <div class="metric">
-          <span>PSD 范围</span>
+          <span id="metricYLabel">PSD 范围</span>
           <strong id="metricPsd">—</strong>
         </div>
       </div>
@@ -98,7 +102,7 @@
               <th>标准</th>
               <th>等级</th>
               <th>频率范围</th>
-              <th>峰值 PSD</th>
+              <th id="peakColumnHeading">峰值 PSD</th>
               <th>Acceleration RMS</th>
               <th>每轴测试时长</th>
               <th>断点数</th>
@@ -115,13 +119,14 @@
         <h2 id="sourceHeading">数据来源</h2>
         <p>曲线采用标准表格中的频率与 PSD 断点。相邻断点在双对数坐标中以直线连接。</p>
         <div class="source-links">
-          <a href="Table_18_Vibration_Schedules_editable.xlsx">GMW3191 April 2025 · Table 18 数据表</a>
-          <a href="32%20PG%2017%20%E2%80%94%20Dynamic%20Loading.txt">DIN/TS 70214 · PG 17 原文</a>
-          <a href="USCAR-2%205.4.6.3C.png">USCAR-2 Rev 9 · Table 5.4.6.3C 原图</a>
+          <a href="Source/GMW3191 - Table_18_Vibration_Schedules_editable.xlsx">GMW3191 April 2025 · Table 18 数据表</a>
+          <a href="Source/DIN_TS 70214 - Aug 2025 - PG 17 Dynamic Loading.txt">DIN/TS 70214 · PG 17 原文</a>
+          <a href="Source/VW75174 - Oct 2018 - Table 9.xlsx">VW 75174 · Table 9 可编辑数据表</a>
+          <a href="Source/USCAR-2 5.4.6.3C.png">USCAR-2 Rev 9 · Table 5.4.6.3C 原图</a>
         </div>
       </div>
-      <a class="source-preview" href="USCAR-2%205.4.6.3C.png" aria-label="打开 USCAR-2 Rev 9 Table 5.4.6.3C 原图">
-        <img src="USCAR-2%205.4.6.3C.png" alt="USCAR-2 Rev 9 Table 5.4.6.3C vibration intensity schedule">
+      <a class="source-preview" href="Source/USCAR-2 5.4.6.3C.png" aria-label="打开 USCAR-2 Rev 9 Table 5.4.6.3C 原图">
+        <img src="Source/USCAR-2 5.4.6.3C.png" alt="USCAR-2 Rev 9 Table 5.4.6.3C vibration intensity schedule">
         <span>USCAR-2 Rev 9 · Table 5.4.6.3C</span>
       </a>
     </section>

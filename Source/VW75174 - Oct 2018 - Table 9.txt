@@ -1,0 +1,228 @@
+Table 9 – Severities
+Severity TC Noise with TC
+Vibration excita‐
+tion, sinusoidal,
+with TC
+Number of shocks
+1. "Body"
+unsealed
+0 min/20 °C
+60 min/-40 °C
+150 min/-40 °C
+300 min/105 °C
+420 min/105 °C
+480 min/20 °C
+8 h per axis;
+RMS value
+of acceleration:
+19.7 m/s2
+No sine wave
+a
+a) = 30 g
+t
+b) = 6 ms
+sinusoidal
+half-wave
+No. of shocks:
+6 000
+Hz c) (m/s2
+)
+2
+/H
+z d)
+10
+55
+180
+300
+360
+1 000
+10
+3.25
+0.125
+0.125
+0.07
+0.07
+2. "Body"
+sealed
+0 min/20 °C
+60 min/-40 °C
+150 min/-40 °C
+300 min/120 °C
+420 min/120 °C
+480 min/20 °C
+20 h per axis;
+RMS value
+of acceleration:
+27.8 m/s2
+No sine wave
+Hz c) (m/s2
+)
+2
+/H
+z d)
+10
+55
+180
+300
+360
+1 000
+20
+6.5
+0.25
+0.25
+0.14
+0.14
+
+Severity TC Noise with TC
+Vibration excita‐
+tion, sinusoidal,
+with TC
+Number of shocks
+3. "Applications
+close to the en‐
+gine"
+0 min/20 °C
+60 min/-40 °C
+90 min/-40 °C
+240 min/120 °C
+420 min/120 °C
+480 min/20 °C
+22 h per axis;
+RMS value
+of acceleration:
+105.5 m/s2
+22 h per axis
+Hz c) (m/s2
+)
+2
+/H
+z d)
+Hz c)
+100
+mm e)
+0.095
+20
+95
+110
+380
+410
+800
+1 500
+10
+10
+0.01
+0.01
+20
+10
+5
+Hz c)
+200
+220
+221
+400
+m/s2
+ 
+a)
+150
+150
+100
+100
+4. "Enginemounted parts"
+Requirement B
+0 min/20 °C
+60 min/-40 °C
+90 min/-40 °C
+240 min/140 °C
+420 min/140 °C
+480 min/20 °C
+22 h per axis;
+RMS value
+of acceleration:
+181 m/s2
+22 h per axis
+Hz c) (m/s2
+)
+2
+/H
+z d)
+Hz c)
+100
+150
+200
+240
+255
+440
+m/s2
+ 
+a)
+100
+150
+200
+200
+150
+150
+10
+100
+300
+500
+2 000
+10
+10
+0.51
+20
+20
+5. "Enginemounted parts"
+Increased
+requirements
+0 min/20 °C
+60 min/-40 °C
+90 min/-40 °C
+240 min/150 °C
+420 min/150 °C
+480 min/20 °C
+No noise
+100 h per axis
+Hz c)
+100
+200
+400
+900
+2 000
+m/s2
+ 
+a)
+150
+300
+300
+500
+500
+6. "Engine mounted parts"
+Special appli‐
+cations
+0 min/20 °C
+60 min/-40 °C
+90 min/-40 °C
+240 min/150 °C
+420 min/150 °C
+480 min/20 °C
+No noise
+100 h per axis
+Hz c)
+100
+200
+400
+900
+2 000
+m/s2
+ 
+a)
+150
+500
+500
+800
+800
+a) Acceleration
+b) Cycle duration
+c) Frequency
+d) Power density spectrum
+e) Distance

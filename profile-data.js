@@ -4,7 +4,7 @@ function validateProfiles(data) {
   const profiles = [];
   const errors = [];
   const ids = new Set();
-  const colors = ["#087f75", "#d24b35", "#1769aa", "#654ea3", "#70842c"];
+  const colors = ["#1769aa", "#19a6a3", "#3a9d5d", "#d1a719", "#f28c28", "#d6452d"];
   if (!Array.isArray(data)) return { profiles, errors: ["profiles.js: PROFILE_DATA must be an array."] };
   data.forEach((entry, index) => {
     const fail = (message) => errors.push(`Profile ${index + 1}: ${message}`);
@@ -14,13 +14,17 @@ function validateProfiles(data) {
     }
     const id = entry.id.trim();
     if (ids.has(id)) { fail(`duplicate id: ${id}`); return; }
-    if (!Array.isArray(entry.points) || entry.points.length < 2 || entry.points.some((point, i) =>
+    const unavailable = entry.available === false;
+    if ((!unavailable && (!Array.isArray(entry.points) || entry.points.length < 2)) ||
+        !Array.isArray(entry.points) || entry.points.some((point, i) =>
       !Array.isArray(point) || point.length !== 2 || point.some((value) => !Number.isFinite(value) || value <= 0) ||
       (i > 0 && point[0] <= entry.points[i - 1][0]))) {
-      fail(`${id}: points need at least two positive [Hz, PSD] pairs with strictly increasing frequencies.`);
+      fail(`${id}: points need at least two positive [Hz, value] pairs with strictly increasing frequencies.`);
       return;
     }
-    if (["rms", "duration"].some((key) => entry[key] != null && (!Number.isFinite(entry[key]) || entry[key] <= 0)) ||
+    if ((entry.mode != null && !["random", "sine"].includes(entry.mode)) ||
+        (entry.available != null && typeof entry.available !== "boolean") ||
+        ["rms", "duration"].some((key) => entry[key] != null && (!Number.isFinite(entry[key]) || entry[key] <= 0)) ||
         (entry.source != null && typeof entry.source !== "string") ||
         (entry.color != null && (typeof entry.color !== "string" || !/^#[0-9a-f]{6}$/i.test(entry.color)))) {
       fail(`${id}: invalid rms, duration, source or #RRGGBB color.`);
@@ -41,7 +45,7 @@ function limitSelection(ids, profiles, maxStandards, maxProfiles) {
   let limited = false;
   for (const id of ids) {
     const profile = byId.get(id);
-    if (!profile || selected.has(id)) continue;
+    if (!profile || profile.available === false || selected.has(id)) continue;
     if (selected.size >= maxProfiles || (!standards.has(profile.standard) && standards.size >= maxStandards)) {
       limited = true;
       continue;

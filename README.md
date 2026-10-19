@@ -23,9 +23,11 @@ Add an object like this inside the array (separate objects with commas):
 
 `id` must be unique. `standard` and `level` are required names. Profiles with
 the same standard name are grouped automatically; no HTML changes are needed.
-Each point is `[frequency in Hz, PSD in (m/s^2)^2/Hz]`. Use at least two
-points, strictly increasing frequencies, and finite positive numeric values.
-Convert values in g^2/Hz to (m/s^2)^2/Hz before entering them.
+For the default `random` mode, each point is `[frequency in Hz, PSD in
+(m/s^2)^2/Hz]`. For sine schedules, add `mode: "sine"`; points then
+use `[frequency in Hz, acceleration in m/s^2]`. Use at least two points,
+strictly increasing frequencies, and finite positive numeric values. Convert
+random values in g^2/Hz to (m/s^2)^2/Hz before entering them.
 
 Optional fields:
 
@@ -35,6 +37,15 @@ Optional fields:
 | `rms` | Stated RMS acceleration in m/s^2, positive number | Not specified |
 | `duration` | Hours per axis, positive number | Not specified |
 | `source` | Source table or reference text | Empty |
+| `mode` | `random` (default) or `sine` | `random` |
+| `available` | Set to `false` when the source explicitly has no component | `true` |
+
+Unavailable levels remain visible in the test-level list with their source
+note, but cannot be selected or plotted. The Sine tab compares sine
+frequency/acceleration schedules; the Random tab compares PSD schedules.
+Built-in colors retain the low-to-high blue/cyan/green → yellow → orange/red
+progression within each standard, while using different shades between
+standards so cross-standard overlays remain readable.
 
 Missing RMS is not calculated or assumed to be zero. Invalid entries are
 skipped and reported above the selection list; other valid entries remain
@@ -43,7 +54,9 @@ are reported as a missing data array. Keep the `const PROFILE_DATA = [...]`
 wrapper intact.
 
 The chart expands its log axes when selected data extends beyond the original
-range. CSV and SVG exports include the selected profiles.
+range. CSV and SVG exports include the selected profiles. The VW 75174 source
+is organized in `Source/VW75174 - Oct 2018 - Table 9.xlsx` with editable level,
+random, sine, and shock sheets.
 
 ## Selection limits
 
