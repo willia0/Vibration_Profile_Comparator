@@ -124,7 +124,103 @@ function updateGroupButtons() { const standards = new Set(selectedProfiles().map
 function renderAll() { hideTooltip(); renderChart(); renderSummary(); renderLegend(); renderTable(); updateGroupButtons(); }
 function downloadBlob(content, type, filename) { const blob = new Blob([content], { type }); const url = URL.createObjectURL(blob); const anchor = document.createElement("a"); anchor.href = url; anchor.download = filename; document.body.appendChild(anchor); anchor.click(); anchor.remove(); URL.revokeObjectURL(url); }
 function exportCsv() { const header = ["standard", "level", "frequency_hz", activeMode === "random" ? "psd_m2_s4_per_hz" : "acceleration_m_s2", "stated_rms_m_s2", "duration_per_axis_h", "source"]; const rows = selectedProfiles().flatMap((profile) => profile.points.map(([frequency, value]) => [profile.standard, profile.level, frequency, value, profile.rms ?? "", profile.duration ?? "", profile.source])); const csv = [header, ...rows].map((row) => row.map((value) => `"${String(value).replaceAll('"', '""')}"`).join(",")).join("\r\n"); downloadBlob(`\uFEFF${csv}`, "text/csv;charset=utf-8", activeMode === "random" ? "vibration-profiles.csv" : "sine-vibration-profiles.csv"); }
-function exportSvg() { const clone = svg.cloneNode(true); clone.querySelector("#hoverLayer")?.remove(); clone.querySelector("rect[tabindex]")?.remove(); const styleText = Array.from(document.styleSheets).flatMap((sheet) => { try { return Array.from(sheet.cssRules); } catch { return []; } }).filter((rule) => [".grid-line", ".axis-domain", ".tick-label", ".axis-label", ".profile-path", ".profile-point", ".plot-background"].some((selector) => rule.selectorText?.includes(selector))).map((rule) => rule.cssText).join("\n"); const style = createSvgElement("style"); style.textContent = styleText; clone.insertBefore(style, clone.firstChild); clone.setAttribute("xmlns", SVG_NS); clone.setAttribute("width", chartGeometry.width); clone.setAttribute("height", chartGeometry.height); downloadBlob(new XMLSerializer().serializeToString(clone), "image/svg+xml;charset=utf-8", activeMode === "random" ? "vibration-profile-comparison.svg" : "sine-vibration-profile-comparison.svg"); }
+function createExportLegend(profiles, width, top) {
+  const rowHeight = 20;
+  const legendHeight = 48 + Math.max(1, profiles.length) * rowHeight;
+  const group = createSvgElement("g", { id: "svgLegend", "aria-label": "Legend" });
+  group.appendChild(createSvgElement("rect", { class: "export-legend-background", x: 0, y: top, width, height: legendHeight, fill: "#ffffff", stroke: "#e0e6e3", "stroke-width": 1 }));
+  const heading = createSvgElement("text", { class: "export-legend-heading", x: chartGeometry.margin.left, y: top + 20, fill: "#35403e", "font-family": 'Inter, "Segoe UI", Arial, sans-serif', "font-size": 11, "font-weight": 700 });
+  heading.textContent = "Legend";
+  group.appendChild(heading);
+  if (!profiles.length) {
+    const empty = createSvgElement("text", { class: "export-legend-label", x: chartGeometry.margin.left, y: top + 42, fill: "#65716e", "font-family": 'Inter, "Segoe UI", Arial, sans-serif', "font-size": 11 });
+    empty.textContent = "No selected profiles";
+    group.appendChild(empty);
+    return { group, height: legendHeight };
+  }
+  profiles.forEach((profile, index) => {
+    const rowTop = top + 30 + index * rowHeight;
+    const line = createSvgElement("line", {
+      class: "export-legend-line",
+      x1: chartGeometry.margin.left,
+      y1: rowTop + 1,
+      x2: chartGeometry.margin.left + 22,
+      y2: rowTop + 1,
+      stroke: profile.color,
+      "stroke-width": 3,
+      "stroke-linecap": "round",
+      "stroke-dasharray": profile.standard === "USCAR-2" ? "8 4" : "none",
+    });
+    const label = createSvgElement("text", { class: "export-legend-label", x: chartGeometry.margin.left + 31, y: rowTop + 5, fill: "#46514f", "font-family": 'Inter, "Segoe UI", Arial, sans-serif', "font-size": 11 });
+    label.textContent = profileLabel(profile);
+    group.append(line, label);
+  });
+  return { group, height: legendHeight };
+}
+function inlineExportStyles(clone) {
+  clone.querySelector(".plot-background")?.setAttribute("fill", "#ffffff");
+  clone.querySelectorAll(".grid-line").forEach((line) => {
+    line.setAttribute("stroke", line.classList.contains("major") ? "#ccd5d2" : "#e5eae8");
+    line.setAttribute("stroke-width", "1");
+    line.setAttribute("vector-effect", "non-scaling-stroke");
+  });
+  clone.querySelectorAll(".axis-domain").forEach((line) => {
+    line.setAttribute("stroke", "#899692");
+    line.setAttribute("stroke-width", "1");
+    line.setAttribute("vector-effect", "non-scaling-stroke");
+  });
+  clone.querySelectorAll(".tick-label").forEach((label) => {
+    label.setAttribute("fill", "#65716e");
+    label.setAttribute("font-family", 'Inter, "Segoe UI", Arial, sans-serif');
+    label.setAttribute("font-size", "10");
+  });
+  clone.querySelectorAll(".axis-label").forEach((label) => {
+    label.setAttribute("fill", "#35403e");
+    label.setAttribute("font-family", 'Inter, "Segoe UI", Arial, sans-serif');
+    label.setAttribute("font-size", "11");
+    label.setAttribute("font-weight", "680");
+  });
+  clone.querySelectorAll(".profile-path").forEach((path) => {
+    path.setAttribute("fill", "none");
+    path.setAttribute("stroke-width", "2.35");
+    path.setAttribute("stroke-linecap", "round");
+    path.setAttribute("stroke-linejoin", "round");
+    path.setAttribute("vector-effect", "non-scaling-stroke");
+  });
+  clone.querySelectorAll(".profile-point").forEach((point) => {
+    point.setAttribute("stroke", "#ffffff");
+    point.setAttribute("stroke-width", "1.4");
+    point.setAttribute("vector-effect", "non-scaling-stroke");
+  });
+}
+function exportSvg() {
+  const clone = svg.cloneNode(true);
+  clone.querySelector("#hoverLayer")?.remove();
+  clone.querySelector("rect[tabindex]")?.remove();
+  inlineExportStyles(clone);
+  const profiles = selectedProfiles();
+  const legend = createExportLegend(profiles, chartGeometry.width, chartGeometry.height);
+  const exportedHeight = chartGeometry.height + legend.height;
+  const styleText = Array.from(document.styleSheets).flatMap((sheet) => { try { return Array.from(sheet.cssRules); } catch { return []; } }).filter((rule) => [".grid-line", ".axis-domain", ".tick-label", ".axis-label", ".profile-path", ".profile-point", ".plot-background"].some((selector) => rule.selectorText?.includes(selector))).map((rule) => rule.cssText).join("\n");
+  const style = createSvgElement("style");
+  style.textContent = styleText;
+  clone.insertBefore(style, clone.firstChild);
+  const canvasBackground = createSvgElement("rect", {
+    class: "export-canvas-background",
+    x: 0,
+    y: 0,
+    width: chartGeometry.width,
+    height: exportedHeight,
+    fill: "#ffffff",
+  });
+  clone.insertBefore(canvasBackground, clone.firstChild);
+  clone.appendChild(legend.group);
+  clone.setAttribute("xmlns", SVG_NS);
+  clone.setAttribute("viewBox", `0 0 ${chartGeometry.width} ${exportedHeight}`);
+  clone.setAttribute("width", chartGeometry.width);
+  clone.setAttribute("height", exportedHeight);
+  downloadBlob(new XMLSerializer().serializeToString(clone), "image/svg+xml;charset=utf-8", activeMode === "random" ? "vibration-profile-comparison.svg" : "sine-vibration-profile-comparison.svg");
+}
 function switchMode(mode) { activeMode = mode; selected.clear(); document.querySelectorAll("[data-mode-tab]").forEach((tab) => { const active = tab.dataset.modeTab === activeMode; tab.classList.toggle("is-active", active); tab.setAttribute("aria-selected", String(active)); }); renderOptions(); setSelection(activeMode === "random" ? [...DEFAULT_SELECTION] : [...DEFAULT_SINE_SELECTION]); }
 
 document.querySelector("#resetSelection").addEventListener("click", () => setSelection(activeMode === "random" ? [...DEFAULT_SELECTION] : [...DEFAULT_SINE_SELECTION]));
